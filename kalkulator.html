@@ -15,7 +15,11 @@
     <input type="radio" name="operator" id="tambah" onclick="tambah()">tambah<br>
     <input type="radio" name="operator" id="kurang" onclick="kurang()">kurang<br>
     <input type="radio" name="operator" id="kali" onclick="kali()">kali<br>
-    <input type="radio" name="operator" id="bagi" onclick="bagi()">bagi<br><br>
+    <input type="radio" name="operator" id="bagi" onclick="bagi()">bagi<br>
+    <input type="radio" name="operator" id="modulus" onclick="modulus()">modulus<br>
+    <input type="radio" name="operator" id="pangkat" onclick="pangkat()">pangkat<br>
+    <input type="radio" name="operator" id="pangkat" onclick="persen()">persen<br>
+    <input type="radio" name="operator" id="akar" onclick="akar()">akar<br>
   <label>Hasil:</label>
     <input type="text" id="hasil" disabled><br>
   <button type="button" onclick="resetAngka()">reset</button>
@@ -47,7 +51,7 @@
         {
           prosesTambah += parseInt(nilai[a]);
         }
-        // console.log(prosesTambah);
+         //console.log(prosesTambah);
         return printHasil(prosesTambah);
       }
 
@@ -69,9 +73,9 @@
       {
         nilai = ambilNilai();
         prosesBagi = parseInt (nilai[0]) / parseInt(nilai[1]);
-        return printHasil(prosesBagi)
+        return printHasil(prosesBagi);
       }
-
+      
     function resetAngka()
     {
     document.getElementById('input1').value = '';
@@ -81,8 +85,42 @@
     document.getElementById('kurang').checked = false;
     document.getElementById('kali').checked = false;
     document.getElementById('bagi').checked = false;
+    document.getElementById('modulus').checked = false;
+    document.getElementById('pangkat').checked = false;
+    document.getElementById('persen').checked = false;
+    document.getElementById('akar').checked = false;
     }
 
+    function modulus()
+      {
+        nilai = ambilNilai();
+        prosesModulus = parseInt (nilai[0]) % parseInt(nilai[1]);
+        return printHasil(prosesModulus);
+      }
+
+      function pangkat()
+      {
+        let input1 = parseInt(document.getElementById('input1').value);
+        let input2 = parseInt(document.getElementById('input2').value);
+        let hasil = Math.pow(input1, input2);
+        document.getElementById('hasil').value = hasil;
+      }
+
+      function persen()
+      {
+        let nilai = ambilNilai();
+        prosesPersenP = parseFloat (nilai[0]) / parseFloat(nilai[1]);
+        console.log(prosesPersenP)
+        return printHasil(prosesPersenP);
+      }
+
+      function akar()
+      {
+        let input1 = parseInt(document.getElementById('input1').value);
+        let input2 = parseInt(document.getElementById('input2').value);
+        let hasil = Math.sqrt(input1, input2);
+        document.getElementById('hasil').value = hasil;
+      }        
     </script>
 </body>
 </html>
